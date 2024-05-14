@@ -223,7 +223,9 @@ input[type=text] {
 }
 
 .xp-display,
-.credit-display {
+.acc-name-display,
+.credit-display,
+.step-counter-display {
   width: 280px;
   height: 41px;
   border: 2px solid black;

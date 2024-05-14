@@ -8,10 +8,10 @@
     </head>
     <body>
 
-
         <!-- container -->
-        <div class="container flex-core flex-col flex-center">
+        <div id="GCG-main-ctr" class="container flex-core flex-col flex-center">
 
+            <!-- image-placeholders-container -->
             <div>
             <ul class="image-placeholders-container flex-core flex-row flex-start">
                 <li class="image-placeholders flex-core flex-center">av_id_01</li>
@@ -20,24 +20,26 @@
                 <li class="image-placeholders flex-core flex-center">av_id_04</li>
             </ul>
             </div>
+            <!-- image-placeholders-container -->
 
+            <!-- form-container -->
             <div class="form-container flex-core flex-col flex-end lg-mt-66">
             <form class="flex-core flex-col flex-end">
                 <input type="text" placeholder="Username input" id="username-selection">
                 <input class="lg-mt-16" type="text" placeholder="ETH amount input" id="ETH-input">
             </form>
-
-            <button class="button lg-mt-41">Register</button>
-
+            <button id="GCG-reg-btn" class="button lg-mt-41">Register</button>
             </div>
+            <!-- form-container -->
 
         </div>
         <!-- container -->
 
-
     <div id="data-sim" class="display-none"></div>
     <div id="acc-sim" class="display-none"></div>
-    </body>
+
     <script src="../_travel_sys_0.1.1/_js/coreData-0.0.1.js"></script>
     <script src="../_travel_sys_0.1.1/_js/simEngine-0.0.3.js"></script>
+
+</body>
 </html>

@@ -8,38 +8,49 @@
     </head>
     <body>
 
-
         <!-- container -->
-        <div class="container flex-core flex-row flex-center">
+        <div id="GCG-main-ctr" class="container flex-core flex-col flex-center">
 
+            <!-- data-warp -->
             <div class="data-warp flex-core flex-row">
-            <div class="data-container flex-core flex-col flex-end-start lg-mr-25">
-                <div class="av-small-container flex-core flex-center">av_id</div>
-                <div class="eth-addr-display lg-mt-25 flex-core flex-center">eth_addr</div>
-                <div class="xp-display lg-mt-25 flex-core flex-center">xp_display</div>
-                <div class="credit-display lg-mt-25 flex-core flex-center">credit_display</div>
-            </div>
 
-            <div class="flex-core flex-col flex-start">
-                <div class="av-travel-container"></div>
-                <div class="travel-trigger-container flex-core flex-col flex-center">
-                    <div class="travel-trigger lg-mt-25 flex-core flex-center">btn</div>
+                <!-- acc-data-container -->
+                <div id="acc-data-container" class="data-container flex-core flex-col flex-end-start lg-mr-25">
+                    <div id="av-small-container" class="av-small-container flex-core flex-center">av_id</div>
+                    <div id="eth-addr-display" class="eth-addr-display lg-mt-25 flex-core flex-center">eth_addr</div>
+                    <div id="xp-display" class="xp-display lg-mt-25 flex-core flex-center">xp_display</div>
+                    <div id="credit-display" class="credit-display lg-mt-25 flex-core flex-center">credit_display</div>
+                </div>
+                <!-- acc-data-container -->
 
-                    <div class="travel-trigger-cd-container flex-core flex-col flex-end">
-                        <div class="travel-trigger-cd flex-core flex-center">cd</div>
+                <!-- acc-avatar-travel-container -->
+                <div id="acc-avatar-travel-container" class="flex-core flex-col flex-start">
+
+                    <div id="av-img-ctr" class="av-travel-container flex-core flex-center">av_id</div>
+
+                    <!-- travel-trigger-container -->
+                    <div id="travel-trigger-ctr" class="travel-trigger-container flex-core flex-col flex-center">
+                        <div id="travel-trigger-btn" class="travel-trigger lg-mt-25 flex-core flex-center">btn</div>
+                        <div class="travel-trigger-cd-container flex-core flex-col flex-end">
+                            <div id="travel-cd" class="travel-trigger-cd flex-core flex-center">cd</div>
+                        </div>
                     </div>
+                    <!-- travel-trigger-container -->
 
                 </div>
+                <!-- acc-avatar-travel-container -->
+
             </div>
-            </div>
+            <!-- data-warp -->
 
         </div>
         <!-- container -->
 
-
     <div id="data-sim" class="display-none"></div>
     <div id="acc-sim" class="display-none"></div>
-    </body>
+
     <script src="../_travel_sys_0.1.1/_js/coreData-0.0.1.js"></script>
     <script src="../_travel_sys_0.1.1/_js/simEngine-0.0.3.js"></script>
+
+</body>
 </html>
