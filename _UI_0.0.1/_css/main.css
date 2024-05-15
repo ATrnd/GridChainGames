@@ -232,6 +232,27 @@ input[type=text] {
   border-radius: 10px;
 }
 
+.state-trigger {
+  width: 66px;
+  height: 66px;
+  border: 2px solid hsla(0, 0%, 0%, 0.2);
+  color: hsla(0, 0%, 0%, 0.2);
+  border-radius: 10px;
+}
+
+.state-trigger.active {
+  color: black;
+  border: 2px solid hsl(0, 0%, 0%);
+}
+
+.state-ctr-ul li {
+  margin-right: 25px;
+}
+
+.state-ctr-ul li:last-child {
+  margin-right: 0;
+}
+
 .travel-trigger {
   width: 66px;
   height: 66px;
@@ -286,4 +307,8 @@ input[type=text] {
 
 .lg-ml-25 {
   margin-left: 25px;
+}
+
+.lg-mb-25 {
+  margin-bottom: 25px;
 }
