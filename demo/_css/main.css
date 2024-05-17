@@ -127,6 +127,17 @@ pre {
           justify-content: center;
 }
 
+.flex-center-dev {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .display-none {
   display: none;
 }
@@ -285,6 +296,26 @@ input[type=text] {
   border-radius: 10px;
 }
 
+.leaderboard-list {
+  list-style-type: none;
+  padding: 20px 20px 20px 0;
+}
+
+.leaderboard-list li {
+  width: 733px;
+}
+
+.GCG-sum-p01 {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  width: 733px;
+  margin-bottom: 5px;
+}
+
+.GCG-sum-logo {
+  width: 173px;
+}
+
 .lg-mt-41 {
   margin-top: 41px;
 }
@@ -312,4 +343,3 @@ input[type=text] {
 .lg-mb-25 {
   margin-bottom: 25px;
 }
-

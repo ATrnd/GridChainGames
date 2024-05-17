@@ -2,18 +2,47 @@
 
 // {sim engine} {{{
 // ================
-// {notices}
-// =========
+
+/**
+ * Represents a game with various functionalities and validations.
+ */
+
+'use strict';
+
+/**
+ * A notice indicating that the game is blocked due to invalid global game phase or game lifespan.
+ * @type {string}
+ */
 const gameBlockedNotice = 'invalid globalGamePhase || globalGameLifespan';
 
-// {globals}
-// =========
+/**
+ * The maximum lifespan of the game in seconds.
+ * @type {number}
+ */
 const gameLifespanLimit = 100;
-const gameStepLimit     = 3;
+
+/**
+ * The number of data iterations.
+ * @type {number}
+ */
+const dataIterator = 100;
+
+/**
+ * The maximum number of game steps.
+ * @type {number}
+ */
+const gameStepLimit = 3;
+
+/**
+ * The time limit for each game step in seconds.
+ * @type {number}
+ */
 const gameStepTimeLimit = 1;
 
-// {gameplay data}
-// ===============
+/**
+ * An object containing XP credit values for different levels.
+ * @type {Object}
+ */
 let xpCreditObj = {
     xpCredVal_0: [1000,1000],
     xpCredVal_1: [1000,2000],
@@ -26,9 +55,13 @@ let xpCreditObj = {
     xpCredVal_8: [3000,3000]
 };
 
-// {user & data generator utility}
-// ===============================
-// refactoring : fn name : concatNameWithIterator
+/**
+ * Generates an array of data with a given prefix and length.
+ *
+ * @param {string} _prefix - The prefix to be added to each element of the array.
+ * @param {number} _i - The length of the array.
+ * @returns {Array} An array of data with the given prefix and length.
+ */
 const genData = (_prefix, _i) => {
   const data = [];
   for (let i = 0; i < _i; i++) {
@@ -37,8 +70,11 @@ const genData = (_prefix, _i) => {
   return data;
 };
 
-// {security layers, game state & phase (global) validators}
-// =========================================================
+/**
+ * Validates the game lifespan.
+ *
+ * @returns {boolean} True if the current time is less than the game lifespan limit, false otherwise.
+ */
 const gameLifespanValidation = () => {
     let lifespanFlag = false;
     const gameLifespanLimitInMillis = globalData.globalGameLifespan;
@@ -49,6 +85,11 @@ const gameLifespanValidation = () => {
     return lifespanFlag;
 };
 
+/**
+ * Validates the game phase.
+ *
+ * @returns {boolean} True if the global game phase is 1, false otherwise.
+ */
 const phaseValidation = () => {
     let phaseFlag = false;
     if(globalData.globalGamePhase === 1) {
@@ -57,6 +98,11 @@ const phaseValidation = () => {
     return phaseFlag;
 };
 
+/**
+ * Validates the system by checking the game phase and lifespan.
+ *
+ * @returns {boolean} True if both the phase and lifespan are valid, false otherwise.
+ */
 const sysValidation = () => {
     let sysValidationFlag = false;
     if(phaseValidation() && gameLifespanValidation()) {
@@ -65,8 +111,12 @@ const sysValidation = () => {
     return sysValidationFlag;
 }
 
-// {game engine utility}
-// =====================
+/**
+ * Generates a random number between 1 and 9.
+ *
+ * @returns {number} A random number between 1 and 9.
+ * @throws {Error} If the system validation fails, an error is thrown indicating the game is blocked.
+ */
 const genRandNum = () => {
     if(sysValidation()) {
         return Math.floor(Math.random() * 9) + 1;
@@ -75,6 +125,12 @@ const genRandNum = () => {
     }
 }
 
+/**
+ * Generates a random number sequence of length 9 with unique numbers.
+ *
+ * @returns {Array} An array of unique random numbers between 1 and 9.
+ * @throws {Error} If the system validation fails, an error is thrown indicating the game is blocked.
+ */
 const genRandNumSeq = () => {
     if(sysValidation()) {
         let _arr = [];
@@ -90,6 +146,12 @@ const genRandNumSeq = () => {
     }
 }
 
+/**
+ * Generates a random noise value between 0 and 2.
+ *
+ * @returns {number} A random noise value between 0 and 2.
+ * @throws {Error} If the system validation fails, an error is thrown indicating the game is blocked.
+ */
 const genNoise = () => {
     if(sysValidation()) {
         let currentTime = new Date().getTime();
@@ -99,6 +161,13 @@ const genNoise = () => {
     }
 };
 
+/**
+ * Optimizes an ID by subtracting 1 from it.
+ *
+ * @param {number} _id - The ID to be optimized.
+ * @returns {number} The optimized ID.
+ * @throws {Error} If the system validation fails, an error is thrown indicating the game is blocked.
+ */
 const optimiseId = (_id) => {
     if(sysValidation()) {
         return (_id - 1);
@@ -107,6 +176,12 @@ const optimiseId = (_id) => {
     }
 }
 
+/**
+ * Simulates a noise ID by generating a random number, optimizing it, and adding noise to it.
+ *
+ * @returns {number} The simulated noise ID.
+ * @throws {Error} If the system validation fails, an error is thrown indicating the game is blocked.
+ */
 const simNoiseID = () => {
     if(sysValidation()) {
         const arrMaxLength = 8;
@@ -125,6 +200,13 @@ const simNoiseID = () => {
     }
 }
 
+/**
+ * Generates a random number from the random number sequence based on the noise ID.
+ *
+ * @param {Array} _arr - The random number sequence.
+ * @returns {number} The optimized random number based on the noise ID.
+ * @throws {Error} If the system validation fails, an error is thrown indicating the game is blocked.
+ */
 const genRandNumSeqNoiseIDOpt = (_arr) => {
     if(sysValidation()) {
         let noiseID = simNoiseID();
@@ -135,6 +217,13 @@ const genRandNumSeqNoiseIDOpt = (_arr) => {
     }
 };
 
+/**
+ * Retrieves the XP credit values for a given level.
+ *
+ * @param {number} _i - The level for which the XP credit values should be retrieved.
+ * @returns {Array} The XP credit values for the given level.
+ * @throws {Error} If the system validation fails, an error is thrown indicating the game is blocked.
+ */
 const getXpCredValues = (_i) => {
     if(sysValidation()) {
         return xpCreditObj['xpCredVal_' + (_i)];
@@ -143,14 +232,23 @@ const getXpCredValues = (_i) => {
     }
 }
 
-// {time log utility}
-// ==================
+/**
+ * Updates the text content of an element with the given label and data.
+ *
+ * @param {string} _label - The label of the element.
+ * @param {string} _data - The data to be appended to the label.
+ * @returns {string} The updated text content.
+ */
 const updateText = (_label, _data) => {
     return _label + ': ' + _data;
 }
 
-//
-// =================
+/**
+ * Validates the step time log for a given user.
+ *
+ * @param {number} _i - The ID of the user.
+ * @returns {boolean} True if the step time log is valid, false otherwise.
+ */
 const stepTimeLogValidation = (_i) => {
 
     let lastStepTimeLog;
@@ -193,25 +291,80 @@ const stepTimeLogValidation = (_i) => {
     return stepTimeFlag;
 }
 
-// {game initialiser utility}
-// ==========================
+/**
+ * Validates the step time log for a given user.
+ *
+ * @param {number} _i - The ID of the user.
+ * @returns {boolean} True if the step time log is valid, false otherwise.
+ */
+const stepTimeUiLogValidation = (_i) => {
+
+    let lastStepTimeLog;
+    let stepTimeFlag             = false;
+    const currentTime            = new Date();
+    const currentTimeInMillis    = currentTime.getTime();
+    const accStepsTimeLogElement = document.getElementById(`userData-${_i}-accStepsTimeLog`);
+
+    if (accStepsTimeLogElement) {
+
+        const accStepsTimeLogText = accStepsTimeLogElement.textContent;
+        const [_, valueGroup]     = accStepsTimeLogText.split(":");
+        let stepsTimeArray        = valueGroup.trim().split(",");
+
+        if (stepsTimeArray.length === 1) {
+            if (stepsTimeArray[0].trim() === '0') {
+                stepsTimeArray[0] = currentTimeInMillis;
+                stepTimeFlag = true;
+            } else {
+                lastStepTimeLog = parseInt(stepsTimeArray[0].trim());
+                if (currentTimeInMillis > lastStepTimeLog + (gameStepTimeLimit * 1000)) {
+                    stepTimeFlag = true;
+                }
+            }
+        } else {
+            lastStepTimeLog = parseInt(stepsTimeArray[stepsTimeArray.length - 1].trim());
+            if (currentTimeInMillis > lastStepTimeLog + (gameStepTimeLimit * 1000)) {
+                stepTimeFlag = true;
+            }
+        }
+    }
+    return stepTimeFlag;
+}
+
+
+/**
+ * Initializes the game lifespan by calculating the future time in milliseconds.
+ *
+ * @returns {number} The future time in milliseconds.
+ */
 const iniGameLifespan = () => {
     const currentTime = new Date();
     const futureTimeInMillis = currentTime.getTime() + (gameLifespanLimit * 1000);
     return futureTimeInMillis;
 };
 
+/**
+ * Initializes the global game variables.
+ */
 const iniGameGlobals = () => {
     globalData.globalGamePhase = 1;
     globalData.globalGameLifespan = iniGameLifespan();
 };
 
-// {simulation utility}
-// ====================
+/**
+ * Generates a random avatar ID between 1 and 4.
+ *
+ * @returns {number} A random avatar ID between 1 and 4.
+ */
 const genRandAvID = () => Math.floor(Math.random() * 4) + 1;
 
-//
-// =====================
+/**
+ * Simulates user accounts in the DOM by creating list items for each user.
+ *
+ * @param {number} _i - The number of user accounts to simulate.
+ * @param {Array} _ethAddr - An array of Ethereum addresses.
+ * @param {Array} _userName - An array of usernames.
+ */
 const simUserAccontsDOM = (_i, _ethAddr, _userName) => {
     const createListItem = (id, name, value) => {
         const li = document.createElement('li');
@@ -261,8 +414,11 @@ const simUserAccontsDOM = (_i, _ethAddr, _userName) => {
     }
 };
 
-// {step simulation for sim accounts}
-// ==================================
+/**
+ * Updates the steps completed for each user account.
+ *
+ * @param {number} _numberOfAccounts - The number of user accounts.
+ */
 const updateStepsCompleted = (_numberOfAccounts) => {
     const currentStep = parseInt(document.getElementById('userData-0-accStepsCompleted').textContent.split(': ')[1]) || 0;
 
@@ -314,8 +470,12 @@ const updateStepsCompleted = (_numberOfAccounts) => {
 
 };
 
-// {step simulation utility & verification}
-// ========================================
+/**
+ * Validates the steps completed for a given user account.
+ *
+ * @param {number} _id - The ID of the user account.
+ * @returns {boolean} True if the steps completed is less than the game step limit, false otherwise.
+ */
 const stepCountValidation = (_id) => {
     let stepFlag = false;
     const accStepsCompleted = document.getElementById(`userData-${_id}-accStepsCompleted`);
@@ -328,11 +488,15 @@ const stepCountValidation = (_id) => {
     return stepFlag;
 };
 
-//
-// =======================
 iniGameGlobals();
 console.log('--- iniGameGlobals ---');
 
+/**
+ * Simulates XP credit values in the DOM by creating list items for each level and user.
+ *
+ * @param {number} _step - The number of game steps.
+ * @param {number} _amount - The number of user accounts.
+ */
 const simXpCreditValuesDOM = (_step, _amount) => {
     const ul = document.createElement('ul');
     for (let i = 0; i < _step; i++) {
@@ -355,31 +519,61 @@ const simXpCreditValuesDOM = (_step, _amount) => {
     document.getElementById('data-sim').appendChild(ul);
 };
 
-// {game ini}
-// ==========
-// {generate utility data}
-// =======================
-const dataIterator = 2;
-
-simXpCreditValuesDOM(gameStepLimit,dataIterator);
 const ethAddresses = genData('0xAddress',dataIterator);
 const usernames    = genData('User',dataIterator);
 
-// {generate UI for testing the step engine}
-// =========================================
-// const button = document.createElement('button');
-// button.textContent = 'Update Steps Completed';
-// button.classList.add('button');
-// button.addEventListener('click', () => updateStepsCompleted(dataIterator));
-// document.body.prepend(button);
+simXpCreditValuesDOM(gameStepLimit,dataIterator);
+simUserAccontsDOM(dataIterator, ethAddresses, usernames);
 
 // }}}
 
-// {UI engine} {{{
+// {ui engine} {{{
 // ===============
-// {generate DOM simulation (data)}
-// ================================
-simUserAccontsDOM(dataIterator, ethAddresses, usernames);
+
+/**
+ * Generates a leaderboard based on the data from the simulation.
+ * The leaderboard is displayed in the specified HTML element with the id 'GCG-leaderboard'.
+ */
+const generateLeaderboard = () => {
+    const leaderboardSelector = document.getElementById('GCG-leaderboard');
+    const accSim = document.getElementById('acc-sim');
+    const accounts = accSim.querySelectorAll('div[id^="userData-"]');
+
+    const scores = [];
+    accounts.forEach(account => {
+        const id = account.id.split('-')[1];
+        const xp = parseInt(document.getElementById(`userData-${id}-accXp`).textContent.split(': ')[1]);
+        const credits = parseInt(document.getElementById(`userData-${id}-accCredits`).textContent.split(': ')[1]);
+        const addr = document.getElementById(`userData-${id}-accAddr`).textContent.split(': ')[1];
+        const name = document.getElementById(`userData-${id}-accName`).textContent.split(': ')[1];
+        const score = xp + credits;
+        scores.push({ addr, name, score });
+    });
+
+    scores.sort((a, b) => b.score - a.score);
+
+    const leaderboardContainer = document.createElement('div');
+    const leaderboardList = document.createElement('ul');
+    leaderboardList.classList.add("leaderboard-list");
+
+
+    scores.forEach((account, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <ul>
+                <li>position: ${index + 1}</li>
+                <li>score: ${account.score}</li>
+                <li>username: ${account.name}</li>
+                <li>address: ${account.addr}</li>
+            </ul>
+            <hr>
+        `;
+        leaderboardList.appendChild(listItem);
+    });
+
+    leaderboardContainer.appendChild(leaderboardList);
+    leaderboardSelector.appendChild(leaderboardContainer);
+};
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -408,6 +602,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let accCredits = "credits: " + userDataAccCredits.innerText.split(': ')[1];
     let accStepsCompleted = "accStepsCompleted: " + userDataAccStepsCompleted.innerText.split(': ')[1];
 
+    // Define the states of the UI
     const states = {
         connectionState: 1,
         registrationState: 2,
@@ -415,8 +610,15 @@ document.addEventListener("DOMContentLoaded", () => {
         travelUIState: 4,
     };
 
+    // Set the initial state
     let currentState = states.connectionState;
 
+    /**
+     * Creates the HTML for the state control buttons.
+     *
+     * @param {number} activeState - The currently active state.
+     * @returns {string} The HTML for the state control buttons.
+     */
     const createStateCtrHTML = (activeState) => {
         const stateCtr = document.createElement('div');
         stateCtr.id = 'state-ctr';
@@ -432,20 +634,40 @@ document.addEventListener("DOMContentLoaded", () => {
         return stateCtr.outerHTML;
     };
 
+    /**
+     * Initializes the summary UI and generates the leaderboard.
+     */
     const iniSummary = () => {
         let uiHTML = "";
         uiHTML = `
-        <div id="GCG-main-ctr" class="container flex-core flex-col flex-center">
-            <p>--- ini summary data ---</p>
-            <button id="GCG-reset" class="button lg-mt-25">Reset</button>
+        <div id="GCG-main-ctr" class="flex-core flex-col flex-center">
+            <div class="flex-core flex-col flex-center-dev">
+                <img class="GCG-sum-logo lg-mb-25 lg-mt-25" src="_img/gcg-logo-0.1.png" alt="">
+                <p class="GCG-sum-p01">Total Game Lifespan :: ${gameLifespanLimit} seconds</p>
+                <p class="GCG-sum-p01">Total accounts simulated :: ${dataIterator} accounts</p>
+                <p class="GCG-sum-p01">Game Step Limit :: ${gameStepLimit} steps</p>
+                <p class="GCG-sum-p01">Game Step Time Limit :: ${gameStepTimeLimit} second</p>
+                <p class="GCG-sum-p01">Game phases :: 2 phases | default-phase, game-phase</p>
+                <p class="GCG-sum-p01">Noise layers :: 2 layers | modulo-operation, random noise sequnce lookup</p>
+                <p class="GCG-sum-p01">Game objectives :: 3 objectives | collecting: experience, credits, completing: ${gameStepLimit} steps</p>
+                <p class="GCG-sum-p01">Security layers :: 3 layers | Game Lifespan validation, Game phase validation, Player Step validation</p>
+                <button id="GCG-reset" class="button lg-mt-25 lg-mb-25">Reset</button>
+                <p class="GCG-sum-p01">Scoreboard:</p>
+                <div id="GCG-leaderboard"></div>
+            </div>
         </div>
         `;
         document.getElementById('GCG-UI').innerHTML = uiHTML;
+        document.getElementById('GCG-UI').classList.remove("container");
         document.getElementById('GCG-reset').addEventListener('click', handleResetBackButtonClick);
     }
 
+    /**
+     * Updates the UI based on the current state.
+     *
+     * @param {number} state - The current state of the UI.
+     */
     const updateUI = (state) => {
-
         userDataAccStepsCompleted = document.getElementById('userData-0-accStepsCompleted');
         userDataAccAvatarID = document.getElementById('userData-0-accAvatarID');
         userDataAccAddr = document.getElementById('userData-0-accAddr');
@@ -572,7 +794,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             accStepID = parseInt(userDataAccStepsCompleted.innerText.split(': ')[1]);
-            if(accStepID === 3 && mainGameUIStateFlag) {
+            if(accStepID === gameStepLimit && mainGameUIStateFlag) {
                 travelBtn = document.getElementById('travel-trigger-btn');
                 travelCdBtn = document.getElementById('travel-cd');
                 travelTriggerCtr = document.getElementById('travel-trigger-ctr');
@@ -599,12 +821,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 try {
                     document.getElementById('travel-trigger-btn').addEventListener('click', handleTravelTriggerButtonClick);
                 } catch(_) {
-                    // console.log(_);
+
                 }
                 try {
                     document.getElementById('summary-btn').addEventListener('click', handleSummaryTriggerButtonClick);
                 } catch(_) {
-                    // console.log(_);
+
                 }
 
                 break;
@@ -618,33 +840,63 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    /**
+     * Handles the click event of the Connect button.
+     * Updates the UI state to the Registration state.
+     */
     const handleConnectButtonClick = () => {
         currentState = states.registrationState;
         updateUI(currentState);
     };
 
+    /**
+     * Handles the click event of the Register button.
+     * Updates the UI state to the Main Game UI state.
+     *
+     * @param {Event} event - The click event.
+     */
     const handleRegisterButtonClick = (event) => {
         event.preventDefault();
         currentState = states.mainGameUIState;
         updateUI(currentState);
     };
 
+    /**
+     * Handles the click event of the Travel Trigger button.
+     * Updates the UI state to the Travel UI state.
+     */
     const handleTravelTriggerButtonClick = () => {
         currentState = states.travelUIState;
-        updateStepsCompleted(dataIterator);
-        updateUI(currentState);
+        if(stepTimeUiLogValidation(0)) {
+            updateStepsCompleted(dataIterator);
+            updateUI(currentState);
+        } else {
+            console.log('invalid stepTimeLogValidation => handleTravelTriggerButtonClick function blocked');
+        }
     };
 
+    /**
+     * Handles the click event of the Summary Trigger button.
+     * Initializes the summary UI and generates the leaderboard.
+     */
     const handleSummaryTriggerButtonClick = () => {
-        console.log('ini summary state');
         iniSummary();
+        generateLeaderboard();
     };
 
+    /**
+     * Handles the click event of the Travel Back button.
+     * Updates the UI state to the Main Game UI state.
+     */
     const handleTravelBackButtonClick = () => {
         currentState = states.mainGameUIState;
         updateUI(currentState);
     };
 
+    /**
+     * Handles the click event of the Reset Back button.
+     * Resets the simulation and updates the UI state to the Connection state.
+     */
     const handleResetBackButtonClick = () => {
 
         document.getElementById('data-sim').remove();
@@ -652,12 +904,12 @@ document.addEventListener("DOMContentLoaded", () => {
         dataSim = document.createElement('div');
         dataSim.id = 'data-sim';
         dataSim.classList.add('display-none');
-        document.body.prepend(dataSim);
+        document.body.append(dataSim);
 
         accSim = document.createElement('div');
         accSim.id = 'acc-sim';
         accSim.classList.add('display-none');
-        document.body.prepend(accSim);
+        document.body.append(accSim);
 
         simXpCreditValuesDOM(gameStepLimit,dataIterator);
         simUserAccontsDOM(dataIterator, ethAddresses, usernames);
@@ -666,6 +918,12 @@ document.addEventListener("DOMContentLoaded", () => {
         updateUI(currentState);
     };
 
+    /**
+     * Handles the click event of the state control buttons.
+     * Updates the UI state based on the clicked button.
+     *
+     * @param {Event} event - The click event.
+     */
     const handleStateButtonClick = (event) => {
         const targetId = event.target.id;
         switch (targetId) {
