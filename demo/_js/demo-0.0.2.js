@@ -648,7 +648,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p class="GCG-sum-p01">Game Step Limit :: ${gameStepLimit} steps</p>
                 <p class="GCG-sum-p01">Game Step Time Limit :: ${gameStepTimeLimit} second</p>
                 <p class="GCG-sum-p01">Game phases :: 2 phases | default-phase, game-phase</p>
-                <p class="GCG-sum-p01">Noise layers :: 2 layers | modulo-operation, random noise sequnce lookup</p>
+                <p class="GCG-sum-p01">Noise layers :: 2 layers | modulo-operation, random noise sequence lookup</p>
                 <p class="GCG-sum-p01">Game objectives :: 3 objectives | collecting: experience, credits, completing: ${gameStepLimit} steps</p>
                 <p class="GCG-sum-p01">Security layers :: 3 layers | Game Lifespan validation, Game phase validation, Player Step validation</p>
                 <button id="GCG-reset" class="button lg-mt-25 lg-mb-25">Reset</button>
