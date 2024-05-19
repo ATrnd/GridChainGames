@@ -2,16 +2,11 @@
 
 # Grid Chain Games — Conceptualization and Ideation
 
-## Problem or Opportunity Identification
+## Problem and Opportunity Identification
 
-Participation in many current Web3 gaming platforms often requires high costs, risks, and technical expertise.
-As a newcomer to the Web3 space, it's time-intensive to research technical requirements.
-Web3 games are prone to both automated and direct attacks, making security a significant concern.
-Additionally, keeping up to date with the ever-changing requirements in Web3 gaming poses a challenge.
-
-Overall, participating in Web3 games entails navigating high costs, risks, and technical demands,
-which necessitate extensive research on technical requirements and security vulnerabilities,
-including threats such as direct attacks and automated threats on DApps.
+Participating in Web3 games involves managing high costs, risks, and technical complexities,
+necessitating thorough research into requirements and security vulnerabilities,
+including the risk of direct and automated attacks on DApps.
 Moreover, accessibility remains an ongoing challenge in the Web3 gaming landscape.
 
 ## Solution Overview
@@ -24,7 +19,7 @@ The game is designed for easy accessibility, running seamlessly within web brows
 
 The proposed solution for Grid Chain Games emphasizes affordability, simplicity, and security.
 By utilizing ETH for rewards and minimizing technical requirements, the game aims to attract users with its low barriers to entry,
-while incentivizing consistent engagement through daily streaks and ensuring a secure gaming environment accessible via web browsers
+while incentivizing consistent engagement through daily streaks and ensuring a secure gaming environment accessible via web browsers.
 
 ## Target Audience
 
