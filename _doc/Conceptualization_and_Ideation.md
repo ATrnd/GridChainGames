@@ -17,7 +17,7 @@ User engagement is prioritized through daily streak mechanics, encouraging regul
 Security against automated and direct attacks is a primary focus, ensuring the security of user interactions within the game environment.
 The game is designed for easy accessibility, running seamlessly within web browsers and featuring straightforward one-step registration processes.
 
-The proposed solution for Grid Chain Games emphasizes affordability, simplicity, and security.
+The proposed solution for Grid Chain Games (GCG) emphasizes affordability, simplicity, and security.
 By utilizing ETH for rewards and minimizing technical requirements, the game aims to attract users with its low barriers to entry,
 while incentivizing consistent engagement through daily streaks and ensuring a secure gaming environment accessible via web browsers.
 
