@@ -8,8 +8,8 @@ Emphasizing simplicity, it streamlines setup processes and advocates minimal scr
 Security is a key focus, with measures in place to safeguard against automated and direct attacks, ensuring a secure gaming environment for all.
 
 ## Resources
-[Conceptualization and Ideation](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Conceptualization_and_Ideation.md)
-[Gameplay Mechanics](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Gameplay_Mechanics.md)
+- [Conceptualization and Ideation](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Conceptualization_and_Ideation.md)
+- [Gameplay Mechanics](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Gameplay_Mechanics.md)
 
 
 <br>
