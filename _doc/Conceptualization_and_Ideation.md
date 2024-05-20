@@ -4,7 +4,7 @@
 
 ## Problem and Opportunity Identification
 
-Participating in Web3 games involves managing high costs, risks, and technical complexities,
+Participating in Web3 games involves managing high costs, navigating technical complexities,
 necessitating thorough research into requirements and security vulnerabilities,
 including the risk of direct and automated attacks on DApps.
 Moreover, accessibility remains an ongoing challenge in the Web3 gaming landscape.
