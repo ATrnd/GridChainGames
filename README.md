@@ -11,6 +11,7 @@ Security is a key focus, with measures in place to safeguard against automated a
 - [Conceptualization and Ideation](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Conceptualization_and_Ideation.md)
 - [Gameplay Mechanics](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Gameplay_Mechanics.md)
 - [MVP Features](https://github.com/ATrnd/GridChainGames/blob/main/_doc/MVP.md)
+- [Demo Walkthrough](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Demo_walkthrough.md)
 - [Long Term Vision](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Long_Term_Vision.md)
 
 ## Demo
