@@ -176,7 +176,7 @@ Summarizing the Noise Layer procedures:
 3. We use the (random number +|- the noise) to get a third value
 4. We use this third value to lookup a number in a random number sequence [1-9]
 5. Finally, we use this value (as an ID) to look up the credit and experience points in another (ideally randomized) number sequence.
-6. Thus, we are eliminating the use of 'plain numbers' for player score-related functions and generating 'noise', making inner game mechanisms harder to exploit.
+6. Thus, we are eliminating the use of 'plain numbers' from player score-related functions and generating 'noise', making inner game mechanisms harder to exploit.
 
 ### GCG — Game Objectives
 
