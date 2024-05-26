@@ -199,7 +199,7 @@ In the GCG demo, we have four security layer implementations.
     - The player steps exceeded the max value (we triggered the travel function more than three times)
     - The travel function is triggered while the 'step time limit' is active (we trigger the travel function in &lt; 2sec)
 
-__The game function execution is blocked.__
+__Function execution is blocked.__
 
 ### GCG — Scoreboard
 
