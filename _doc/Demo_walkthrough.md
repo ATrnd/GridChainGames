@@ -74,7 +74,7 @@ The main game state is where users can trigger game functions and complete gam
     - the collected total credit points
     - the total steps completed
     - the travel button
-    - the travel cd indicator (not implemented)
+    - the travel cooldown (cd) indicator (not implemented)
 
 ![Grid Chain Games - The Main Game UI](https://github.com/ATrnd/GridChainGames/blob/main/_img/_game_UI_0.1.png?raw=true)
 
