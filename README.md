@@ -26,6 +26,10 @@ For a more technical/developer-friendly (& somewhat abstract) documents, see:
 - [Demo Walkthrough](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Demo_walkthrough.md)
 - [Convergence](https://github.com/ATrnd/GridChainGames/blob/main/_doc/Convergence.md)
 
+Demo URL:
+
+- [GCG prototype demo](https://atrnd.github.io/GCG_demo/)
+
 <br>
 
 ![Grid Chain Games Footer](https://github.com/ATrnd/GridChainGames/blob/main/_img/GCG_footer_0.2.png?raw=true)
