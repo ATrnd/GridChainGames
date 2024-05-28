@@ -96,7 +96,7 @@ The travel UI is rendered if a user triggers the travel function. It displays th
     - the user's ETH address
     - the user's nickname
     - the collected experience points (for the current step)
-    - the collected total credit points (for the current step)
+    - the collected credit points (for the current step)
     - the back button
 
 ![Grid Chain Games - The Travel UI](https://github.com/ATrnd/GridChainGames/blob/main/_img/_travel_UI_0.1.png?raw=true)
